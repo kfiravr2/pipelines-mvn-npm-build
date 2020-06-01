@@ -110,7 +110,7 @@ pipelines:
         execution:
           onStart:
             - rm -rf $run_dir/workspace/jfrog
-            - retry_command jfrog rt config --url $int_Artifactory _url --user $int_Artifactory _user --apikey $int_Artifactory _apikey --interactive=false
+            - retry_command jfrog rt config --url $int_Artifactory_url --user $int_Artifactory_user --apikey $int_Artifactory_apikey --interactive=false
             - pushd $res_be_gitRepo_resourcePath
             - add_run_variables buildStepName=${step_name}
             - add_run_variables ${step_name}_buildNumber=${run_number}
