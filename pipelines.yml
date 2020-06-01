@@ -3,14 +3,14 @@ resources:
   - name: be_gitRepo
     type: GitRepo
     configuration:
-      path: kfiravr2/pipelines-mvn-npm-build
+      path: kfiravr2/java-backend
       gitProvider: github_admin
 
   # Git repo for front-end source
   - name: fe_gitRepo
     type: GitRepo
     configuration:
-      path: kfiravr2/pipelines-mvn-npm-build
+      path: kfiravr2/vue-frontend
       gitProvider: github_admin
 
   # Build info for the application
