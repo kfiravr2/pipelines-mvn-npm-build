@@ -97,7 +97,7 @@ pipelines:
         type: Bash
         configuration:
           environmentVariables:
-            dockerImageName: kfira1-docker-local.jfrog.io/app
+            dockerImageName: artifactory1:8081/docker-local/app
             dockerImageTag: ${run_number}
           inputResources:
             - name: be_gitRepo
@@ -117,7 +117,7 @@ pipelines:
             - add_run_variables ${step_name}_buildName=${pipeline_name}
             - docker build --pull --no-cache -t $dockerImageName:$dockerImageTag --build-arg REGISTRY=${int_Artifactory_url} .
             - jfrog rt bce $pipeline_name $run_number
-            - jfrog rt docker-push kfira1-docker-local.jfrog.io/app:$run_number docker-local --build-name=$pipeline_name --build-number=$run_number
+            - jfrog rt docker-push artifactory1:8081/docker-local/app:$run_number docker-local --build-name=$pipeline_name --build-number=$run_number
             - add_run_files /tmp/jfrog/.jfrog
 
       - name: publish_app_build
